@@ -9,11 +9,12 @@ export default {
         "custom-white": "#f2f2f2",
         "hover-color": "rgb(207, 244, 227)",
       },
-      backgroundColor: {
-        "custom-nav-bg": "rgb(33, 148, 255)",
-        "custom-nav-bg-2": "rgb(2, 73, 138)",
-        "custom-footer-bg": "rgb(55, 56, 94)",
-        "custom-body-bg": "#fffdd0",
+      backgroundColor:{
+        'custom-nav-bg'  : 'rgb(33, 148, 255)',
+        'custom-nav-bg-2': 'rgb(2, 73, 138)',
+        'custom-footer-bg': 'rgb(55, 56, 94)',
+        'custom-body-bg' : '#fffdd0',
+        'overlay-bg' : 'rgba(0, 0, 0, 0.5)'
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
@@ -27,8 +28,11 @@ export default {
       height: {
         "100p": "100%",
       },
-      gridTemplateColumns: {
-        "auto-fill-100": "repeat(auto-fill, minmax(100px, 1fr))",
+      zIndex:{
+        'overlay' : '1000',
+      },
+      gridTemplateColumns:{
+        'auto-fill-100' : 'repeat(auto-fill, minmax(100px, 1fr))',
       },
       screens: {
         sm: { max: "420px" },
@@ -38,5 +42,14 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.start': {
+          textIndent: '8rem', 
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };
