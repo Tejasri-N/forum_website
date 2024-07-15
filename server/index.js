@@ -8,6 +8,7 @@ require("dotenv").config();
 
 const client = require("./db");
 const postRoute = require("./postRouting");
+const profileRoute = require("./profileRouting")
 const commentRoute = require("./commentRouting");
 
 const app = express();
@@ -192,6 +193,9 @@ app.post("/newPassword", async (req, res) => {
 // MANAGING POST
 
 app.use("/postApi", postRoute);
+
+// MANAGING PROFILE
+app.use("/profileApi",profileRoute)
 
 // MANAGING COMMENT
 app.use("/commentApi", commentRoute);
