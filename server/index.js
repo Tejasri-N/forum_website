@@ -42,6 +42,10 @@ app.post("/signUp", async (req, res) => {
       "INSERT INTO users_data (username, email, hashed_password) VALUES ($1, $2, $3)",
       [name, email, hashedPassword]
     );
+    await client.query(
+      "insert into users_profile (username) values ($1)",
+      [name]
+    );
     res.json({ status: "ok" });
   } catch (error) {
     if (error.code === 11000) {
