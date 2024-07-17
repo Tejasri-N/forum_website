@@ -31,7 +31,11 @@ function Home({ toggleSidebar, isSidebarOpen }) {
         )}
         <main className={`flex-1 p-4 ${isSidebarOpen ? "ml-2" : ""}`}>
           <div className="flex flex-col justify-center items-center">
-            <ManagePosts user={user} />
+            {(!user) ? (
+              <></>
+            ):(
+              <ManagePosts user={user} />
+            )}
           </div>
         </main>
       </div>
